@@ -1,5 +1,6 @@
 "use strict";
 
+// Add item to cart 
 const addItemToCart = (itemName) => {
   $('#cart-items').append(`
     <tr>
@@ -8,11 +9,13 @@ const addItemToCart = (itemName) => {
   `);
 };
 
+// Return the cart to empty
 const resetCart = () => {
   $('#cart-total').html('0.00');
   $('#cart-items').empty();
 };
 
+// Increment total price for cart
 const incrementCartTotal = (price) => {
   const cartTotal = $('#cart-total');
 
@@ -38,3 +41,9 @@ const setProgressAndStatus = (progressVal, statusMsg) => {
 //
 // Add your event handlers below.
 //
+
+$('.add-to-order').on('click', () => {
+  addItemToCart('Coffee');
+  incrementCartTotal(1.5);
+  console.log('Hi');
+});
